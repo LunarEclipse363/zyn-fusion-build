@@ -7,6 +7,25 @@ WTFPL.
 
 ---
 
+## FORK NOTICE
+
+This successfully builds zyn 3.0.6 for windows.
+
+You install it by just extracting the zip into your VSTs folder (works with FLStudio 20 on WINE).
+
+Step 1: build image
+```shell
+podman build -t zf-ubuntu-w64-img -f docker-builders/ubuntu-windows.dockerfile .
+```
+
+Step 2: compile (linux etc commented out already)
+```shell
+bash ./docker-builders/build.sh 
+```
+
+
+---
+
 ## Fetch repositories
 
 You need to fetch this repo first (if you're using Windows, see below for how to do it).

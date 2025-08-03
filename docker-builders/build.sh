@@ -11,28 +11,28 @@ ZYNADD_VERSION=$(cat ./version.txt)
 
 #### No user parameters below this line ####
 set -e 
-DOCKER="${SUDO} docker"
+DOCKER="${SUDO} podman"
 
 # Base image for Linux builds
-${DOCKER} build -t zf-ubuntu-linux-img -f docker-builders/ubuntu-linux.dockerfile .
+#${DOCKER} build -t zf-ubuntu-linux-img -f docker-builders/ubuntu-linux.dockerfile .
 
 # Demo
-${DOCKER} run --name zf-ubuntu-linux zf-ubuntu-linux-img make MODE=demo PARALLEL=1 -f Makefile.linux.mk
-${DOCKER} cp zf-ubuntu-linux:/z/build/zyn-fusion-linux-64bit-${ZYNADD_VERSION}-demo.tar.bz2 .
-${DOCKER} rm zf-ubuntu-linux
+#${DOCKER} run --name zf-ubuntu-linux zf-ubuntu-linux-img make MODE=demo PARALLEL=1 -f Makefile.linux.mk
+#${DOCKER} cp zf-ubuntu-linux:/z/build/zyn-fusion-linux-64bit-${ZYNADD_VERSION}-demo.tar.bz2 .
+#${DOCKER} rm zf-ubuntu-linux
 
 # Release
-${DOCKER} run --name zf-ubuntu-linux zf-ubuntu-linux-img make MODE=release PARALLEL=1 -f Makefile.linux.mk
-${DOCKER} cp zf-ubuntu-linux:/z/build/zyn-fusion-linux-64bit-${ZYNADD_VERSION}-release.tar.bz2 .
-${DOCKER} rm zf-ubuntu-linux
+#${DOCKER} run --name zf-ubuntu-linux zf-ubuntu-linux-img make MODE=release PARALLEL=1 -f Makefile.linux.mk
+#${DOCKER} cp zf-ubuntu-linux:/z/build/zyn-fusion-linux-64bit-${ZYNADD_VERSION}-release.tar.bz2 .
+#${DOCKER} rm zf-ubuntu-linux
 
 # Base image for cross-compilation Windows builds
-${DOCKER} build -t zf-ubuntu-w64-img -f docker-builders/ubuntu-windows.dockerfile .
+#${DOCKER} build -t zf-ubuntu-w64-img -f docker-builders/ubuntu-windows.dockerfile .
 
 # Cross-compilation demo
-${DOCKER} run --name zf-ubuntu-w64 zf-ubuntu-w64-img make MODE=demo PARALLEL=1 -f Makefile.windows.mk
-${DOCKER} cp zf-ubuntu-w64:/z/build/zyn-fusion-windows-64bit-${ZYNADD_VERSION}-demo.zip .
-${DOCKER} rm zf-ubuntu-w64
+#${DOCKER} run --name zf-ubuntu-w64 zf-ubuntu-w64-img make MODE=demo PARALLEL=1 -f Makefile.windows.mk
+#${DOCKER} cp zf-ubuntu-w64:/z/build/zyn-fusion-windows-64bit-${ZYNADD_VERSION}-demo.zip .
+#${DOCKER} rm zf-ubuntu-w64
 
 # Cross-compilation release
 ${DOCKER} run --name zf-ubuntu-w64 zf-ubuntu-w64-img make MODE=release PARALLEL=1 -f Makefile.windows.mk
@@ -40,5 +40,5 @@ ${DOCKER} cp zf-ubuntu-w64:/z/build/zyn-fusion-windows-64bit-${ZYNADD_VERSION}-r
 ${DOCKER} rm zf-ubuntu-w64
 
 # Cleanup
-${DOCKER} rmi zf-ubuntu-linux-img
-${DOCKER} rmi zf-ubuntu-w64-img
+#${DOCKER} rmi zf-ubuntu-linux-img
+#${DOCKER} rmi zf-ubuntu-w64-img

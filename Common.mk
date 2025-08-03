@@ -1,6 +1,6 @@
 # Mode can be set to either "demo" or "release"
 # TODO: Use two final targets instead of manually setting this flag when invoking `make`
-MODE	:= demo
+MODE	:= release
 ifeq ($(MODE), demo)
 DEMO_MODE	:= true
 else
@@ -33,8 +33,8 @@ ZEST_REPO_URL		:= https://github.com/mruby-zest/mruby-zest-build
 # When cutting a release, use:
 #ZYNADDSUBFX_COMMIT	?= origin/release-$(VER)
 #ZEST_COMMIT			?= origin/release-$(VER)
-ZYNADDSUBFX_COMMIT	?= origin/master
-ZEST_COMMIT			?= origin/master
+ZYNADDSUBFX_COMMIT	?= 3.0.6
+ZEST_COMMIT			?= 3.0.6
 
 # Zyn's source pathes
 ZYNADDSUBFX_PATH	:= $(GIT_SRC_PATH)/zynaddsubfx
